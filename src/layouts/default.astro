@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" class="min-h-screen">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cjmoore Portfolio & Blog</title>
+</head>
+<body class="bg-gradient-to-b from-base to-deep min-h-screen">
+    <div class="flex flex-1 items-center justify-center h-20 max-w-full mx-auto">
+        <nav class="flex backdrop-blur-sm rounded-full px-3 text-sm bg-base bg-opacity-80 ring-1 ring-white/10 pointer-events-auto text-foam">
+            <a class="relative block px-3 py-2.5 transtion hover:text-dawn" href="">About</a>
+            <a class="relative block px-3 py-2.5 transtion hover:text-dawn" href="">Projects</a>
+            <a class="relative block px-3 py-2.5 transtion hover:text-dawn" href="">Posts</a>
+        </nav>
+    </div>
+    <div class="border-solid border-2 border-pierce sm:px-8">
+        <div class="border-solid border-2 border-pierce lg:px-12 mx-auto max-w-5xl">
+            <div class="border-solid border-2 border-pierce sm:px-8 lg:px-12 px-4 relative">
+                <div class="border-solid border-2 border-pierce lg:max-w-5xl max-w-2xl mb-12 mx-auto">
+                    <div class="border-solid border-2 border-pierce flex justify-center">
+                        <slot />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
