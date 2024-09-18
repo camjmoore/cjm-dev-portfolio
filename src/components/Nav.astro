@@ -1,0 +1,24 @@
+---
+const currentPage = Astro.url.pathname.replace('/', '');
+const navLinks = [
+  { href: 'about', label: 'about' },
+  { href: 'projects', label: 'projects' },
+  { href: 'posts', label: 'posts' },
+  { href: 'rudiments', label: 'rudiments' }
+];
+---
+
+<nav class="bg-surface text-subtle pointer-events-auto flex rounded-full bg-opacity-80 px-3 text-sm ring-1 ring-white/10 backdrop-blur-sm">
+  {navLinks.map(link => (
+    <a
+      href={link.href}
+      id={link.href}
+      class={`group relative block px-3 py-2.5 transition hover:text-orange-500 ${currentPage === link.href ? 'text-orange-500' : ''}`}
+    >
+      {link.label}
+      <span
+        class={`inset-x-1 -bottom-px h-px bg-gradient-to-r from-orange-500/0 via-orange-500/70 to-orange-500/0 ${currentPage === link.href ? 'absolute' : ''}`}
+      ></span>
+    </a>
+  ))}
+</nav>
