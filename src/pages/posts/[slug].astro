@@ -1,0 +1,163 @@
+---
+import Layout from "../../layouts/default.astro";
+
+export async function getStaticPaths() {
+  const posts = [
+    {
+      slug: "building-with-astro",
+      title: "Building with Astro: A Developer's Perspective",
+      date: "2024-01-15",
+      readTime: "5 min read",
+      content: `
+        <p>Astro has quickly become one of my favorite frameworks for building content-driven websites. Its unique approach to partial hydration and component islands makes it perfect for blogs, portfolios, and documentation sites.</p>
+        
+        <h2>Why Choose Astro?</h2>
+        <p>The main advantages I've found include:</p>
+        <ul>
+          <li>Zero JavaScript by default</li>
+          <li>Component islands architecture</li>
+          <li>Framework agnostic approach</li>
+          <li>Excellent developer experience</li>
+        </ul>
+        
+        <h2>Performance Benefits</h2>
+        <p>By shipping minimal JavaScript and focusing on static generation, Astro sites are incredibly fast. The partial hydration approach means only interactive components load JavaScript, keeping the main thread free for other tasks.</p>
+      `
+    },
+    {
+      slug: "component-design",
+      title: "The Art of Component Design",
+      date: "2024-01-08",
+      readTime: "8 min read",
+      content: `
+        <p>Creating reusable components is more than just writing code—it's about designing systems that scale with your application and team.</p>
+        
+        <h2>Principles of Good Component Design</h2>
+        <p>When designing components, I follow these key principles:</p>
+        <ul>
+          <li>Single Responsibility Principle</li>
+          <li>Composition over inheritance</li>
+          <li>Predictable API design</li>
+          <li>Accessibility by default</li>
+        </ul>
+      `
+    },
+    {
+      slug: "tailwind-advanced",
+      title: "Tailwind CSS: Beyond the Basics",
+      date: "2024-01-01",
+      readTime: "6 min read",
+      content: `
+        <p>While Tailwind CSS is easy to get started with, mastering its advanced features can significantly improve your workflow and output quality.</p>
+        
+        <h2>Custom Design Systems</h2>
+        <p>One of Tailwind's greatest strengths is its configurability. By customizing your tailwind.config.js, you can create a design system that perfectly matches your brand.</p>
+      `
+    },
+    {
+      slug: "backend-development",
+      title: "Against Whimsy",
+      date: "2025-05-25",
+      readTime: "7 min read",
+      content: `
+        <p>Whimsy. The word itself is a crime against efficiency. It conjures images of pastel sticky notes, motivational cat posters, and developers who believe “fun” is a valid design principle. If you’re reading this, there’s a 99% chance you’re either a back-end developer or lost. If it’s the latter, close your browser and go back to your UI/UX “brainstorming” session where you can debate the emotional resonance of button gradients. The rest of us have real work to do.</p>
+
+        <h2>The Cult of Whimsy</h2>
+        <p>
+        In the modern tech workplace, whimsy is a virus. It infects codebases with “fun” variable names and replaces robust error handling with ASCII art. I’ve seen production logs that look like ransom notes written by a caffeinated toddler. This is not a quirky “team culture.” This is entropy in action.
+        </p>
+        <p>
+        Somewhere along the way, someone decided that software engineering should be “delightful.” Probably the same person who thinks YAML is a good idea. They’ll tell you that a little whimsy “boosts morale.” I say it boosts the probability of a catastrophic system failure by 37%. Show me a whimsical back-end stack and I’ll show you a 3 a.m. PagerDuty alert waiting to happen.
+        </p>
+
+        <h2>The Austerity Principle</h2>
+        <p>
+        Here’s a radical idea: Back-end development should be as joyless as possible. Not because I hate happiness (I do), but because the universe is a hostile, indifferent place, and your distributed system should reflect that. Code is not art. It is not a vehicle for self-expression. It is a tool to bend machines to your will. The only acceptable feelings in a server room are existential dread and the faint hope that your RAID array hasn’t failed.
+        </p>
+        <p>
+        If you want whimsy, go write a Chrome extension that changes all text to Comic Sans. If you want uptime, write code like you’re the last sane person on Earth and the rest of your team is Dinesh.
+        </p>
+
+        <h2>On Naming Things</h2>
+        <p>
+        The two hardest problems in computer science are cache invalidation, naming things, and off-by-one errors. Whimsy makes all three worse. If you name your database “Mordor” and your microservices “Frodo” and “Sam,” congratulations: you’ve made it impossible for anyone to take your architecture or your Tolkien obsession seriously. When your system crashes, I’m not going to “follow the ring to Mount Doom.” I’m going to follow the logs to your desk and revoke your Git access.
+        </p>
+
+        <h2>Documentation: Not a Canvas</h2>
+        <p>
+        Documentation is not a place for haikus, ASCII unicorns, or “fun facts.” It is a place for cold, unfeeling truth. If your API docs read like a BuzzFeed quiz, you’re the reason I drink. The only “Easter egg” I want in my README is a link to the incident report explaining why we’re still using Java 8 in 2025.
+        </p>
+
+        <h2>The Whimsy Defense</h2>
+        <p>
+        I know what you’re thinking: “But Gilfoyle, whimsy fosters creativity!” No, it doesn’t. It fosters confusion, technical debt, and the kind of meetings where someone suggests “gamifying” the deployment pipeline. If you need whimsy to feel creative, try Dungeons &amp; Dragons. In the back-end, creativity is measured in milliseconds shaved off response times and the number of zero-day exploits you didn’t introduce this sprint.
+        </p>
+
+        <h2>Conclusion: Embrace the Void</h2>
+        <p>
+        Back-end development is not supposed to be fun. It is supposed to work. When you strip away the whimsy, you’re left with the raw, beautiful machinery of distributed systems—cold, logical, and indifferent to your feelings. That’s how it should be. The only thing worse than code that doesn’t work is code that tries to cheer you up about it.
+        </p>
+        <p>
+        So the next time you feel the urge to add a “fun” comment or a whimsical touch to your service, ask yourself: “What would Gilfoyle do?” Then do the opposite of whatever Dinesh suggests.
+        </p>
+        <p>
+        Welcome to the void. Enjoy your stay. Or don’t. I don’t care.
+        </p>`
+    },
+  ];
+
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout>
+  <article class="prose prose-invert max-w-none">
+    <header class="text-center mb-8 pb-8 border-b border-muted/30">
+      <div class="space-y-4">
+        <time class="text-sm text-muted">
+          {new Date(post.date).toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+          })}
+        </time>
+        <h1 class="text-3xl md:text-4xl font-bold text-foam">{post.title}</h1>
+        <p class="text-muted">{post.readTime}</p>
+      </div>
+    </header>
+    
+    <div class="text-subtle leading-relaxed space-y-6" set:html={post.content}></div>
+    
+    <footer class="mt-12 pt-8 border-t border-muted/30">
+      <a 
+        href="/posts" 
+        class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors"
+      >
+        ← Back to posts
+      </a>
+    </footer>
+  </article>
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-xl md:text-2xl font-semibold text-dawn mt-8 mb-4;
+  }
+  
+  .prose p {
+    @apply mb-4;
+  }
+  
+  .prose ul {
+    @apply list-disc list-inside space-y-2 text-subtle ml-4;
+  }
+  
+  .prose li {
+    @apply text-subtle;
+  }
+</style>

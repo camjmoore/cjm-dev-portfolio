@@ -1,10 +1,10 @@
 ---
-const currentPage = Astro.url.pathname.replace('/', '');
+const currentPage = Astro.url.pathname;
 const navLinks = [
-  { href: 'about', label: 'about' },
-  { href: 'projects', label: 'projects' },
-  { href: 'posts', label: 'posts' },
-  { href: 'rudiments', label: 'rudiments' }
+  { href: '/about', label: 'about' },
+  { href: '/projects', label: 'projects' },
+  { href: '/posts', label: 'posts' },
+  { href: '/rudiments', label: 'rudiments' }
 ];
 ---
 
@@ -13,11 +13,11 @@ const navLinks = [
     <a
       href={link.href}
       id={link.href}
-      class={`group relative block px-3 py-2.5 transition hover:text-orange-500 ${currentPage === link.href ? 'text-orange-500' : ''}`}
+      class={`group relative block px-3 py-2.5 transition hover:text-dawn ${currentPage.startsWith(link.href) ? 'text-dawn' : ''}`}
     >
       {link.label}
       <span
-        class={`inset-x-1 -bottom-px h-px bg-gradient-to-r from-orange-500/0 via-orange-500/70 to-orange-500/0 ${currentPage === link.href ? 'absolute' : ''}`}
+        class={`inset-x-1 -bottom-px h-px bg-gradient-to-r from-dawn/0 via-dawn/70 to-dawn/0 ${currentPage.startsWith(link.href) ? 'absolute' : ''}`}
       ></span>
     </a>
   ))}

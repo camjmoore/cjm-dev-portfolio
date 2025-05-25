@@ -1,13 +1,63 @@
 ---
 import Layout from "../layouts/default.astro";
+import { Image } from "astro:assets";
+import MyEmoji from "../assets/cjm-dev-merc.png";
 ---
+
 <Layout>
-	<div className="flex items-center">
-		<div className="h-24 w-24 overflow-hidden rounded-full border border-subtle">
+	<div class="space-y-8">
+		<div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+			<div class="h-22 w-22 my-10 overflow-hidden rounded-full border-2 border-deep bg-surface flex items-center justify-center">
+				<Image src={MyEmoji} alt="emoji of a web dev mercenary with a mustache" width={175} height={175}/>
+			</div>
+			<div class="text-center md:text-left">
+				<h2 class="text-3xl md:text-4xl font-bold text-foam mb-2">Cameron J Moore</h2>
+				<p class="text-lg text-dawn mb-4">Full-Stack Interloper | Web-dev Mercenary</p>
+				<p class="text-subtle max-w-2xl leading-relaxed">
+					Passionate about creating intuitive and performant web experiences. I specialize in modern 
+					JavaScript frameworks, responsive design, and occasionally venture into full-stack territory.
+				</p>
+			</div>
 		</div>
-		<div className="">
-			<h2 className="text-3xl"> Cameron J Moore </h2>
-			<p className="text-5md"> Front-End Developer | Full-Stack Interloper</p>
+
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<div class="bg-surface/50 backdrop-blur-sm rounded-lg p-6 border border-muted/20">
+				<h3 class="text-xl font-semibold text-foam mb-4">Skills & Technologies</h3>
+				<div class="space-y-3">
+					<div class="flex flex-wrap gap-2">
+						{['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js'].map(skill => (
+							<span class="px-3 py-1 bg-overlay rounded-full text-sm text-dawn border border-muted/30">
+								{skill}
+							</span>
+						))}
+					</div>
+					<div class="flex flex-wrap gap-2">
+						{['Python', 'Git', 'Docker', 'GraphQL', 'PostGreSQL', 'MongoDB'].map(skill => (
+							<span class="px-3 py-1 bg-overlay rounded-full text-sm text-subtle border border-muted/30">
+								{skill}
+							</span>
+						))}
+					</div>
+				</div>
+			</div>
+
+			<div class="bg-surface/50 backdrop-blur-sm rounded-lg p-6 border border-muted/20">
+				<h3 class="text-xl font-semibold text-foam mb-4">Get in Touch</h3>
+				<div class="space-y-3">
+					<a href="mailto:hello@cjmoore.dev" class="flex items-center gap-3 text-subtle hover:text-orange-500 transition-colors">
+						<span class="w-5 h-5 bg-mint rounded-full flex-shrink-0"></span>
+						hello@cjmoore.dev
+					</a>
+					<a href="https://github.com/cjmoore" class="flex items-center gap-3 text-subtle hover:text-orange-500 transition-colors">
+						<span class="w-5 h-5 bg-mint rounded-full flex-shrink-0"></span>
+						GitHub
+					</a>
+					<a href="https://linkedin.com/in/cjmoore" class="flex items-center gap-3 text-subtle hover:text-orange-500 transition-colors">
+						<span class="w-5 h-5 bg-mint rounded-full flex-shrink-0"></span>
+						LinkedIn
+					</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </Layout>

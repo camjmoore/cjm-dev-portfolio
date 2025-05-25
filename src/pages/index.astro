@@ -3,6 +3,36 @@ import Layout from '../layouts/default.astro';
 ---
 
 <Layout>
-	<h1 class="font-sans">Astro</h1>
-</Layout>
+	<div class="space-y-8 text-center">
+		<div class="space-y-4">
+			<h1 class="text-4xl md:text-6xl font-bold text-foam">
+				Cameron J Moore
+			</h1>
+			<p class="text-xl md:text-2xl text-subtle">
+				Front-End Developer | Full-Stack Interloper
+			</p>
+		</div>
+		
+		<div class="space-y-6 text-left max-w-2xl mx-auto">
+			<div class="bg-surface/50 backdrop-blur-sm rounded-lg p-6 border border-muted/20">
+				<h2 class="text-xl font-semibold text-mint mb-3">Welcome to my digital space</h2>
+				<p class="text-subtle leading-relaxed">
+					I craft digital experiences with modern web technologies. From responsive interfaces to full-stack applications, 
+					I'm passionate about building tools that make a difference.
+				</p>
+			</div>
 
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<a href="/projects" class="group bg-surface/30 backdrop-blur-sm rounded-lg p-4 border border-muted/20 hover:border-orange-500/50 transition-colors">
+					<h3 class="text-dawn font-medium group-hover:text-orange-500 transition-colors">Projects</h3>
+					<p class="text-sm text-muted">Explore my latest work</p>
+				</a>
+				
+				<a href="/posts" class="group bg-surface/30 backdrop-blur-sm rounded-lg p-4 border border-muted/20 hover:border-orange-500/50 transition-colors">
+					<h3 class="text-dawn font-medium group-hover:text-orange-500 transition-colors">Blog Posts</h3>
+					<p class="text-sm text-muted">Thoughts on development</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</Layout>

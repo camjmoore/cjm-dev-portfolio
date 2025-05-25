@@ -1,12 +1,75 @@
 ---
 import Layout from "../layouts/default.astro";
+
+const projects = [
+	{
+		title: "Portfolio & Blog",
+		description: "A modern portfolio site built with Astro and Tailwind CSS featuring a custom design system and blog functionality.",
+		tech: ["Astro", "Tailwind CSS", "TypeScript"],
+		status: "Live",
+		link: "#"
+	},
+	{
+		title: "Task Management App",
+		description: "A React-based task management application with drag-and-drop functionality and real-time collaboration features.",
+		tech: ["React", "Node.js", "Socket.io"],
+		status: "In Progress",
+		link: "#"
+	},
+	{
+		title: "E-commerce Dashboard",
+		description: "An admin dashboard for managing products, orders, and analytics with a focus on user experience and performance.",
+		tech: ["Next.js", "Prisma", "PostgreSQL"],
+		status: "Completed",
+		link: "#"
+	}
+];
 ---
+
 <Layout>
+	<div class="space-y-8">
+		<div class="text-center">
+			<h1 class="text-3xl md:text-4xl font-bold text-foam mb-4">Projects</h1>
+			<p class="text-subtle max-w-2xl mx-auto">
+				A collection of projects showcasing my development skills and problem-solving approach.
+			</p>
+		</div>
 
-	<div className="flex items-center">
-		<h1 class="self-start px-3 py-1 w-full bg-abyss2 bg-opacity-60 backdrop-blur-sm rounded-md">
-			Projects
-		</h1>
+		<div class="grid grid-cols-1 gap-6">
+			{projects.map((project, index) => (
+				<div class="bg-surface/50 backdrop-blur-sm rounded-lg p-6 border border-muted/20 hover:border-orange-500/30 transition-all group">
+					<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+						<h3 class="text-xl font-semibold text-dawn group-hover:text-orange-500 transition-colors">
+							{project.title}
+						</h3>
+						<div class="flex items-center gap-3">
+							<span class={`px-3 py-1 rounded-full text-sm border ${
+								project.status === 'Live' ? 'bg-mint/20 text-mint border-mint/30' :
+								project.status === 'In Progress' ? 'bg-dawn/20 text-dawn border-dawn/30' :
+								'bg-sleep/20 text-sleep border-sleep/30'
+							}`}>
+								{project.status}
+							</span>
+							<a href={project.link} class="text-subtle hover:text-orange-500 transition-colors">
+								<span class="sr-only">View project</span>
+								→
+							</a>
+						</div>
+					</div>
+					
+					<p class="text-subtle mb-4 leading-relaxed">
+						{project.description}
+					</p>
+					
+					<div class="flex flex-wrap gap-2">
+						{project.tech.map(tech => (
+							<span class="px-3 py-1 bg-overlay rounded-full text-sm text-foam border border-muted/30">
+								{tech}
+							</span>
+						))}
+					</div>
+				</div>
+			))}
+		</div>
 	</div>
-
 </Layout>
