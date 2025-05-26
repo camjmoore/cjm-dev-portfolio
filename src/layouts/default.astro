@@ -5,37 +5,20 @@ import "../styles/main.css";
 
 <!DOCTYPE html>
 <html lang="en" class="bg-gradient-to-b from-base to-deep min-h-screen font-sans">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cameron Moore Full-Stack Developer</title>
-    </head>
-
-    <body class="min-h-screen bg-top bg-no-repeat max-w-4xl mx-auto bg-base">
-        <div class="border-solid border-2 border-base h-20 mx-auto max-w-4xl">
-            <div class="mx-auto h-20 w-full max-w-4xl">
-                <div class="mx-auto flex-column h-full max-w-4xl items-center justify-center sm:justify-start md:justify-between">
-                    <div class="flex flex-1 items-center justify-center h-20 max-w-full mx-auto">
-
-                        <Nav/>
-
-                    </div>
-                    <div class="border-solid border-2 border-base sm:px-8">
-                        <div class="border-solid border-2 border-base lg:px-12 mx-auto max-w-5xl">
-                            <div class="border-solid border-2 border-base sm:px-8 lg:px-12 px-4 relative">
-                                <div class="border-solid border-2 border-base lg:max-w-5xl max-w-2xl mb-12 mx-auto">
-                                    <div class="border-solid border-2 border-base flex justify-center">
-
-                                        <slot />
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cameron Moore Full-Stack Developer</title>
+  </head>
+  <body class="min-h-screen bg-base bg-top bg-no-repeat max-w-4xl mx-auto">
+    <div class="border-2 border-base max-w-4xl mx-auto h-20 flex items-center justify-center">
+      <Nav />
+    </div>
+    <main class="border-2 border-base max-w-5xl mx-auto mt-8 px-4 sm:px-8 lg:px-12">
+      <section class="border-2 border-base max-w-2xl lg:max-w-5xl mx-auto mb-12 flex justify-center">
+        <slot />
+      </section>
+    </main>
+  </body>
 </html>
+
