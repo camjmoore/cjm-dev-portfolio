@@ -1,0 +1,11 @@
+---
+// src/components/Icon.astro
+import Github from './Github.astro'
+import Linkedin from './Linkedin.astro'
+import Email from './Email.astro'
+const { name } = Astro.props
+const iconMap = { 'github': Github, 'linkedin': Linkedin, 'email': Email }
+const IconComponent = iconMap[name]
+---
+<IconComponent />
+
