@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/default.astro";
+
+const posts = [
+	{
+		title: "Building with Astro: A Developer's Perspective",
+		excerpt: "Exploring the benefits of Astro for modern web development and why it's becoming my go-to framework for content-driven sites.",
+		date: "2024-01-15",
+		readTime: "5 min read",
+		slug: "building-with-astro",
+		tags: ["Astro", "Web Development", "Performance"]
+	},
+	{
+		title: "The Art of Component Design",
+		excerpt: "Best practices for creating reusable, maintainable components that scale with your application.",
+		date: "2024-01-08",
+		readTime: "8 min read",
+		slug: "component-design",
+		tags: ["React", "Design Systems", "Frontend"]
+	},
+	{
+		title: "Tailwind CSS: Beyond the Basics",
+		excerpt: "Advanced Tailwind techniques for creating custom design systems and optimizing for production.",
+		date: "2024-01-01",
+		readTime: "6 min read",
+		slug: "tailwind-advanced",
+		tags: ["CSS", "Tailwind", "Styling"]
+	},
+	{
+		title: "Against Whimsy",
+		excerpt: "Whimsy. The word itself is a crime against efficiency. It conjures images of pastel sticky notes, motivational cat posters, and developers who believe “fun” is a valid design principle",
+		date: "2025-05-25",
+		readTime: "7 min read",
+		slug: "backend-development",
+		tags: ["Curmudgeon", "Back-end", "SWE"]
+	},
+
+];
+---
+
+<Layout>
+	<div class="space-y-8">
+		<div class="text-center">
+			<h1 class="lg:text-5xl md:text-4xl sm:text-4xl  font-bold text-foam mb-4"> Lessons I'm Glad to Have Learned </h1>
+			<p class="text-subtle max-w-2xl mx-auto">
+				Thoughts, tutorials, and insights from my journey in web development.
+			</p>
+		</div>
+
+		<div class="space-y-6">
+			{posts.map((post, index) => (
+				<article class="bg-surface/50 backdrop-blur-sm rounded-lg p-6 border border-muted/20 hover:border-orange-500/30 transition-all group">
+					<div class="space-y-4">
+						<div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+							<time class="text-sm text-muted">
+								{new Date(post.date).toLocaleDateString('en-US', { 
+									year: 'numeric', 
+									month: 'long', 
+									day: 'numeric' 
+								})}
+							</time>
+							<span class="text-sm text-muted">{post.readTime}</span>
+						</div>
+						
+						<h2 class="text-xl md:text-2xl font-semibold text-dawn group-hover:text-orange-500 transition-colors">
+							<a href={`/posts/${post.slug}`} class="hover:underline">
+								{post.title}
+							</a>
+						</h2>
+						
+						<p class="text-subtle leading-relaxed">
+							{post.excerpt}
+						</p>
+						
+						<div class="flex flex-wrap gap-2">
+							{post.tags.map(tag => (
+								<span class="px-3 py-1 bg-overlay rounded-full text-sm text-foam border border-muted/30">
+									{tag}
+								</span>
+							))}
+						</div>
+						
+						<div class="pt-2">
+							<a 
+								href={`/posts/${post.slug}`} 
+								class="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors font-medium"
+							>
+								Read more
+								<span>→</span>
+							</a>
+						</div>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</Layout>
