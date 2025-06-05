@@ -1,0 +1,10 @@
+---
+import Headshot from "../assets/headshot-bw.png";
+import { Image } from "astro:assets";
+---
+<div class="flex flex1">
+  <div class="min-height-10 min-width-10 overflow-hidden rounded-full border-2 border-deep bg-surface shadow-lg flex items-center justify-center">
+    <Image src={Headshot} alt="professional headshot of your next full-stack developer with a white background" height={50} width={50}/>
+  </div>
+  <a class="pointer-events-auto flex items-center font-semibold ml-1 dark:text-white">Cameron Moore</a>
+</div>

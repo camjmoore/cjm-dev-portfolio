@@ -1,0 +1,18 @@
+---
+import Avatar from "./Avatar.astro";
+import Button from "./Button.astro";
+---
+
+<header class="border border-pierce mb-12 min-w-5xl">
+  <div class="flex items-center justify-end mx-auto">
+    <div class="relative flex gap-4">
+      <Avatar/>
+      <div class="flex flex-1 justify-end md:justify-center">
+        <slot/>
+      </div>
+      <div class="flex justify-end md:flex-1">
+        <Button/>
+      </div>
+    </div>
+  </div>
+</header>

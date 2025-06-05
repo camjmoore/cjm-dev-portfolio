@@ -1,10 +1,11 @@
 ---
 // src/components/Icon.astro
-import Github from './Github.astro'
-import Linkedin from './Linkedin.astro'
-import Email from './Email.astro'
+import Github from './Github.astro';
+import Linkedin from './Linkedin.astro';
+import Email from './Email.astro';
+import Theme from './Theme.astro';
 const { name } = Astro.props
-const iconMap = { 'github': Github, 'linkedin': Linkedin, 'email': Email }
+const iconMap = { 'github': Github, 'linkedin': Linkedin, 'email': Email, 'theme': Theme }
 const IconComponent = iconMap[name]
 ---
 <IconComponent />
